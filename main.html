@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fic Archive</title>
+    <link rel="icon" href="assets/tsuchinoko.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Ropa+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
+</head>
+
+<body id="body" onLoad="initialize();">
+    <header class="bannerwrapper">
+        <div class="fadebannerimg">
+            <img class="bannerimg" src="assets/low-poly-polygonal-textures-by-Lumberjacks/5.png">
+            <div class="flex-space-around">
+                <h1 class="bannertext" onClick="getData();">FicDB</h1>
+                <div class="searchbars">
+                    <button class="headerButton" onClick="$('.dropdown').toggle();">Filters <icon style="font-size:0.25em;color:black;">▼</icon></button>
+                    <ul class="dropdown">
+                        <li><label>All</label><input id="filterAll" type="text"></input>
+                        </li>
+                        <li><label>Title</label><input id="filterTitle" type="text"></input>
+                        </li>
+                        <li><label>Author</label><input id="filterAuthor" type="text"></input>
+                        </li>
+                        <li><label>Finished</label><input id="filterFinished" type="checkbox"></input>
+                        </li>
+                        <li><label>Favourite</label><input id="filterFavourite" type="checkbox"></input>
+                        </li>
+                        <li><label>Deleted</label><input id="filterDeleted" type="checkbox"></input>
+                        </li>
+                        <li><label>Chapters</label><input id="filterChaptersMin" placeholder="minimum" type="text"></input><br>
+                            <input id="filterChaptersMax" placeholder="maximum" type="text"></input>
+                        </li>
+                        <li><label>Words</label><input id="filterWordsMin" placeholder="minimum" type="text"></input><br>
+                            <input id="filterWordsMax" placeholder="maximum" type="text"></input>
+                        </li>
+                        <li><label>Fandom</label><select id="filterFandoms"><option value="Any">Any</option></select></li>
+                        <li><label>Host</label><select id="filterHosts">
+                            <option value="Any">Any</option>
+                            <option value="Ao3">Archive of Our Own</option>
+                            <option value="FF">Fanfiction.net</option>
+                            <option value="FiM">FiMFiction</option>
+                            <option value="LJ">LiveJournal</option>
+                            <option value="Misc">Misc</option>                            
+                            <option value="Tblr">Tumblr</option>
+                        </select></li>
+                        <li><label>Format</label><select id="filterFormats">
+                            <option value="Any">Any</option>
+                            <option value="other">Other</option>
+                            <option value="pdf">PDF</option>
+                            <option value="epub">EPUB</option>
+                            <option value="mobi">MOBI</option>
+                        </select></li>
+                        <li><label>Categories</label><select id="filterCategories"><option value="Any">Any</option></select></li>
+                        <li> <button onClick="applyAllFilters()">GO!</button></li>
+                    </ul>
+                    <div class="extraButtons">
+                        <button onClick="accordion();">Expand/Collapse All</button>
+                        <button onClick="applySpecificFilterToAll('Favourite', 1);">★</button>
+                        <button onClick="applySpecificFilterToAll('y', 1);">❠</button>
+                        <button onClick="getData();;">See All</button>
+                    </div>
+                </div>
+                <div id="navbar">
+                    <a href="https://www.linkedin.com/in/clavain-ramsden-6689b5194/"><img class="icon" src="assets/icons/icon_circle_linkedin.png"></a>
+                    <a href="https://github.com/clavainova"><img class="icon" src="assets/icons/icon_circle_github.png"></a>
+                </div>
+            </div>
+            <span class="filterstring" id="filterstring" style="display:none;" onClick="$('.filterstring').hide()"></span>
+        </div>
+    </header>
+
+
+    <div class="flexwrap" id="container"></div>
+
+    <div class="loading" id="loadingScreen">
+        <img id="loading-image" src="assets/img/berdly.png" alt="Loading..." />
+        <h1>LOADING...</h1>
+    </div>
+
+    <footer>
+        <p>© Clavain Ramsden 2019-2022<br> Background and banner images by Lumberjacks. Font “Ropa Sans”.</p><img src="assets/img/shiny_furret.gif">
+    </footer>
+
+
+</body>
+
+
+</html>
