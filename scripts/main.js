@@ -8,10 +8,10 @@ function initialize() {
     link.type = "text/css";
     link.rel = "stylesheet";
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-        link.href = "assets/styles/style_mobile.css";
+        link.href = "assets/styles/style_mobile.css"; //this style definitely exists and stuff for sure hahahahahahahahahaha
         head.appendChild(link);
     } else {
-        link.href = "assets/styles/style.css";
+        link.href = "assets/styles/style.css"; //this should be style.css
         head.appendChild(link);
     }
     //load dynamic elements
@@ -26,6 +26,7 @@ function ghost() {
 
 //------[HANDLE JSON]-------
 
+//use this one to convert https://beautifytools.com/excel-to-json-converter.php
 function getData() {
     clearFics();
     fics = [];
@@ -82,7 +83,7 @@ function buildContainer(fic) {
 
     //title+URL
     if (fic.URL) {
-        header.append($("<h2 class='" + color + "'><a href='" + fic.URL + "'>" + fic.Title + "</a></h2>"));
+        header.append($("<h2 class='" + color + "'>" + fic.Title + "<a href='" + fic.URL + "'>🔗</a></h2>"));
     } else { //white if no associated url
         header.append($("<h2>" + fic.Title + "</h2>"));
     }
@@ -291,7 +292,7 @@ function applyFilter(filterIndex, filterValue, fic) {
     }
     return false;
 }
-
+//apply filter to all fics
 function applySpecificFilterToAll(index, value) {
     clearFics();
     let ficsFiltered = [];
